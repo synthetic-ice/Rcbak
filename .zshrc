@@ -51,7 +51,7 @@ DISABLE_AUTO_UPDATE="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git themes d colorize catimg wd vi-mode zsh-syntax-highlighting)
+plugins=(git themes d colorize catimg wd vi-mode zsh-syntax-highlighting extract)
 
 # User configuration
 
@@ -101,7 +101,9 @@ source $ZSH/oh-my-zsh.sh
 alias grep="grep --color=auto"
 alias tree="tree -C"
 alias youp="you-get -p vlc"
-alias clang11="clang++ -std=c++11 -Wall -Weffc++ -Wextra -pedantic -O3"
+alias c11="clang++ -std=c++11 -Wall -Weffc++ -Wextra -pedantic -O3"
+alias hsleep="sudo systemctl hybrid-sleep"
+alias pacs="sudo pacman -Syyu"
 alias -s cpp=vim
 alias -s py=python3
 alias -s md=vim

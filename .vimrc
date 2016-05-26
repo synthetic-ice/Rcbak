@@ -28,6 +28,10 @@ Bundle 'Chiel92/vim-autoformat'
 Bundle 'derekwyatt/vim-fswitch'
 Bundle 'klen/python-mode'
 Bundle 'surround.vim'
+Bundle 'tomasr/molokai'
+Bundle 'vim-scripts/TaskList.vim'
+Bundle 'sjl/gundo.vim'
+Bundle 'bash-support.vim'
 "Bundle 'html5.vim'
 "Bundle 'fcitx.vim'
 "Bundle 'pyflakes.vim'
@@ -55,7 +59,7 @@ set shortmess=atI
 "syntax and theme
 syntax on
 set background=dark
-colorscheme monokai
+colorscheme molokai
 set cursorline
 set cursorcolumn
 
@@ -216,6 +220,13 @@ let g:cpp_class_scope_highlight = 1
 let g:cpp_experimental_template_highlight = 1
 let c_no_curly_error = 1
 
+" tasklist
+let g:tlWindowPosition = 1
+nnoremap <leader>td :TaskList<CR>
+
+" gundo
+nnoremap <leader>gu :GundoToggle<CR>
+
 "tmux
 if exists('$TMUX')
   set term=screen-256color
@@ -231,11 +242,13 @@ nnoremap <leader>p :bp<CR>
 nnoremap <leader>w :bd<CR>
 map <F2> :TagbarToggle<CR>
 map <leader>il :IndentLinesToggle<CR>
+map <C-[> <Esc>
 "nmap <silent> <leader>gd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 nmap <silent> <leader>sw :FSHere<CR>
 
 "CPP shortcut
 autocmd FileType c,cpp nnoremap <leader>r   <Esc>:w<CR>:!clang++ -Wall -Weffc++ -Wextra -O3 -pedantic -std=c++11 % -o /tmp/a.out && /tmp/a.out<CR>
+autocmd FileType sh nnoremap <leader>r   <Esc>:w<CR>:!chmod +x % && ./%<CR>
 autocmd FileType c,cpp nnoremap <F3>   <Esc>:w<CR>:!clang++ -Wall -std=c++11 %<CR>
 autocmd FileType c,cpp nnoremap <C-F3> <Esc>:w<CR>:!/tmp/a.out<CR>
 autocmd FileType c,cpp nnoremap <C-F4> <Esc>:w<CR>:!clang++ -Wall -std=c++11 -g % -o /tmp/a.out && gdb /tmp/a.out<CR>
